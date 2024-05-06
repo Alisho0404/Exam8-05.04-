@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: blue;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+            /* Добавляем анимацию */
+            animation: spin 2s linear infinite;
+        }
+
+        /* Определение анимации */
+        @Component spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Изображение с внешнего сайта -->
+   
+    <h1>Bank of America</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!-- Скрипт для изменения цвета заголовка -->
+<script>
+        setInterval(function() {
+            document.querySelector('h1').style.color = getRandomColor();
+        }, 2000);
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>

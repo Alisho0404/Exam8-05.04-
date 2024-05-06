@@ -1,0 +1,43 @@
+﻿@page
+@model Razor.Pages.Account.UpdateAccountModel
+@{
+    ViewData["Title"] = "Update Account";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>@ViewData["Title"]</h1>
+
+        <form method="post">
+            <input type="hidden" asp-for="Account.Id" />
+
+            <div class="form-group">
+                <label asp-for="Account.AccountNumber">AccountNumber:</label>
+                <input asp-for="Account.AccountNumber" class="form-control" />
+                <span asp-validation-for="Account.AccountNumber" class="text-danger"></span>
+
+                <label asp-for="Account.Balance">Balance:</label>
+                <input asp-for="Account.Balance" class="form-control" />
+
+                <label asp-for="Account.OwnerId">OwnerId:</label>
+                <input asp-for="Account.OwnerId" class="form-control" />
+
+                <label asp-for="Account.Type">Type:</label>
+                <input asp-for="Account.Type" class="form-control" />
+                
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Update Account</button>
+            <a asp-page="/Account/GetAccounts" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

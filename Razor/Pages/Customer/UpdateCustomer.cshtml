@@ -1,0 +1,43 @@
+﻿@page
+@model Razor.Pages.Customer.UpdateCustomerModel
+@{
+    ViewData["Title"] = "Update Customer";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>@ViewData["Title"]</h1>
+
+        <form method="post">
+            <input type="hidden" asp-for="Customer.Id" />
+
+            <div class="form-group">
+                <label asp-for="Customer.Name">Customer Name:</label>
+                <input asp-for="Customer.Name" class="form-control" />
+                <span asp-validation-for="Customer.Name" class="text-danger"></span> 
+
+                <label asp-for="Customer.Email">Customer Email:</label>
+                <input asp-for="Customer.Email" class="form-control" /> 
+
+                <label asp-for="Customer.Address">Customer Address:</label>
+                <input asp-for="Customer.Address" class="form-control" />
+
+                <label asp-for="Customer.PhoneNumber">Customer PhoneNumber:</label>
+                <input asp-for="Customer.PhoneNumber" class="form-control" />
+                
+            </div>
+
+           
+
+            <button type="submit" class="btn btn-primary">Update Customer</button>
+            <a asp-page="/Customer/GetCustomers" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

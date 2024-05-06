@@ -1,0 +1,23 @@
+using Infrastructure.Services.CustomerService;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace Razor.Pages.Customer
+{
+    public class DeleteCustomerModel : PageModel
+    {
+        private readonly ICustomerService _customerService;
+        public DeleteCustomerModel(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
+
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
+         public async Task<IActionResult> OnPostAsync()
+        {
+            await _customerService.RemoveCustomerAsync(Id);
+            return RedirectToPage("/Customer/GetCustomers");
+        }
+    }
+}

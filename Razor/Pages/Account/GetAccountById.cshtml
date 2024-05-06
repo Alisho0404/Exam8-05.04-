@@ -1,0 +1,77 @@
+﻿@page
+@model Razor.Pages.Account.GetAccountByIdModel
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+
+        .category-info {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+            .category-info h2 {
+                color: #007bff;
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+
+            .category-info ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .category-info li {
+                margin-bottom: 10px;
+            }
+
+        .btn-back {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        @if (Model.Account != null)
+        {
+            <div class="Account-info">
+                <h2>Account Information</h2>
+                <ul>
+                    <li><strong>ID:</strong> @Model.Account.Id</li>
+                    <li><strong>Account Number:</strong> @Model.Account.AccountNumber</li>
+                    <li><strong>Balance:</strong> @Model.Account.Balance</li>
+                    <li><strong>OwnerId:</strong> @Model.Account.OwnerId</li>
+                    <li><strong>Account Type:</strong> @Model.Account.Type</li>
+                   
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">Account not found.</div>
+        }
+
+        <a asp-page="/Account/GetAccounts" class="btn btn-secondary btn-back">Back to Accounts</a>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
